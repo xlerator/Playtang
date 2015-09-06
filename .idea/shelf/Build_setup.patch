@@ -1,0 +1,298 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision )
++++ .idea/compiler.xml	(revision )
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <resourceExtensions />
++    <wildcardResourcePatterns>
++      <entry name="!?*.java" />
++      <entry name="!?*.form" />
++      <entry name="!?*.class" />
++      <entry name="!?*.groovy" />
++      <entry name="!?*.scala" />
++      <entry name="!?*.flex" />
++      <entry name="!?*.kt" />
++      <entry name="!?*.clj" />
++      <entry name="!?*.aj" />
++    </wildcardResourcePatterns>
++    <annotationProcessing>
++      <profile default="true" name="Default" enabled="false">
++        <processorPath useClasspath="true" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/runConfigurations.xml	(revision )
++++ .idea/runConfigurations.xml	(revision )
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/copyright/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/copyright/profiles_settings.xml	(revision )
++++ .idea/copyright/profiles_settings.xml	(revision )
+@@ -0,0 +1,3 @@
++<component name="CopyrightManager">
++  <settings default="" />
++</component>
+\ No newline at end of file
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.name	(revision )
++++ .idea/.name	(revision )
+@@ -0,0 +1,1 @@
++Playtang
+\ No newline at end of file
+Index: Playtang.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Playtang.iml	(revision )
++++ Playtang.iml	(revision )
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="Playtang" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="java-gradle" name="Java-Gradle">
++      <configuration>
++        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/build" />
++        <option name="BUILDABLE" value="false" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision )
++++ .idea/misc.xml	(revision )
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EntryPointsManager">
++    <entry_points version="2.0" />
++  </component>
++  <component name="NullableNotNullManager">
++    <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
++    <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
++    <option name="myNullables">
++      <value>
++        <list size="4">
++          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
++          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
++          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
++          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
++        </list>
++      </value>
++    </option>
++    <option name="myNotNulls">
++      <value>
++        <list size="4">
++          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
++          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
++          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
++          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
++        </list>
++      </value>
++    </option>
++  </component>
++  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
++    <OptionsSetting value="true" id="Add" />
++    <OptionsSetting value="true" id="Remove" />
++    <OptionsSetting value="true" id="Checkout" />
++    <OptionsSetting value="true" id="Update" />
++    <OptionsSetting value="true" id="Status" />
++    <OptionsSetting value="true" id="Edit" />
++    <ConfirmationsSetting value="0" id="Add" />
++    <ConfirmationsSetting value="0" id="Remove" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision )
++++ .idea/modules.xml	(revision )
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Playtang.iml" filepath="$PROJECT_DIR$/Playtang.iml" />
++      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision )
++++ .idea/encodings.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="PROJECT" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/app.iml	(revision 52967359793b801d8683622380811fcd9f77a502)
++++ app/app.iml	(revision )
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="Module" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="Playtang" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+   <component name="FacetManager">
+     <facet type="android-gradle" name="Android-Gradle">
+       <configuration>
+@@ -114,31 +114,31 @@
+     </content>
+     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" exported="" name="mediarouter-v7-22.2.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-cast-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-gcm-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-games-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-wallet-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-vision-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-identity-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-drive-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-location-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-nearby-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-ads-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="appcompat-v7-22.2.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-panorama-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="mediarouter-v7-22.2.0" level="project" />
++    <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-safetynet-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-analytics-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-appindexing-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-base-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-appinvite-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-safetynet-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-plus-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-base-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-appindexing-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-fitness-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-vision-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-gcm-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-games-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-cast-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-wearable-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="support-v4-22.2.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-nearby-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-location-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-wallet-7.8.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-appstate-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-wearable-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-identity-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-panorama-7.8.0" level="project" />
+-    <orderEntry type="library" exported="" name="play-services-plus-7.8.0" level="project" />
++    <orderEntry type="library" exported="" name="appcompat-v7-22.2.0" level="project" />
+     <orderEntry type="library" exported="" name="play-services-maps-7.8.0" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision )
++++ .idea/gradle.xml	(revision )
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="distributionType" value="LOCAL" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.4" />
++        <option name="gradleJvm" value="1.7" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
