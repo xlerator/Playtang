@@ -21,5 +21,8 @@
 
     <!-- Content Description for images -->
     <string name="desc_google_icon">Google Logo</string>
+<<<<<<< HEAD
     <string name="title_activity_app_home">AppHomeActivity</string>
+=======
+>>>>>>> origin/master
 </resources>
