@@ -5,4 +5,5 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="HomeTheme" parent="android:Theme.Light.NoTitleBar"></style>
 </resources>

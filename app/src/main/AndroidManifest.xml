@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    package="com.example.module" >
-=======
     package="com.example.module">
->>>>>>> origin/master
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,16 +15,6 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-<<<<<<< HEAD
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name" >
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
-=======
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,7 +22,6 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
->>>>>>> origin/master
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,11 +31,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-<<<<<<< HEAD
             android:windowSoftInputMode="adjustResize|stateHidden" />
-=======
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
->>>>>>> origin/master
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -58,8 +39,7 @@
 
         <activity
             android:name=".MainAppActivity"
-<<<<<<< HEAD
-            android:theme="@android:style/Theme.DeviceDefault" >
+            android:theme="@android:style/Theme.DeviceDefault">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.module.SplashActivity" />
@@ -67,10 +47,8 @@
         <activity
             android:name=".AppHomeActivity"
             android:label="@string/title_activity_app_home"
-            android:parentActivityName=".SplashActivity" >
-=======
-            android:theme="@android:style/Theme.DeviceDefault">
->>>>>>> origin/master
+            android:parentActivityName=".SplashActivity"
+            android:theme="@style/HomeTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.module.SplashActivity" />

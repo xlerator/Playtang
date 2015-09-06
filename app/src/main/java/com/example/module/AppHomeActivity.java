@@ -1,7 +1,8 @@
 package com.example.module;
 
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,6 +12,7 @@ public class AppHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_home);
+        getWindow().setStatusBarColor(Color.RED);
     }
 
     @Override

@@ -30,23 +30,22 @@ import com.google.android.gms.plus.Plus;
 
 public class MainAppActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
+    /* Request code used to invoke sign in user interactions. */
+    private static final int RC_SIGN_IN = 9001;
+    private static final String KEY_IS_RESOLVING = "is_resolving";
+    private static final String KEY_SHOULD_RESOLVE = "should_resolve";
+    static int mPreviousPage = 0;
+    final String TAG = "MainAppActivity";
+    int[] mResources;
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     private LinearLayout mPagerMarkView;
-    static int mPreviousPage = 0;
-    int[] mResources;
-    final String TAG = "MainAppActivity";
     /* Is there a ConnectionResult resolution in progress? */
     private boolean mIsResolving = false;
     /* Should we automatically resolve ConnectionResults when possible? */
     private boolean mShouldResolve = false;
-    /* Request code used to invoke sign in user interactions. */
-    private static final int RC_SIGN_IN = 9001;
-
     /* Client used to interact with Google APIs. */
     private GoogleApiClient mGoogleApiClient;
-    private static final String KEY_IS_RESOLVING = "is_resolving";
-    private static final String KEY_SHOULD_RESOLVE = "should_resolve";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,6 +183,11 @@ public class MainAppActivity extends Activity implements GoogleApiClient.Connect
         Log.d(TAG, "onConnected: Name : "+Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getName());
         Log.d(TAG, "onConnected: Gender : "+Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getGender());
         Log.d(TAG, "onConnected: RelationShip Status : "+Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getRelationshipStatus());
+        Intent mHomeIntent = new Intent(MainAppActivity.this, AppHomeActivity.class);
+        mHomeIntent.putExtra("Email", Plus.AccountApi.getAccountName(mGoogleApiClient));
+        mHomeIntent.putExtra("Name", name);
+        startActivity(mHomeIntent);
+        finish();
     }
 
     @Override
