@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">Module</string>
+    <string name="app_name">Playtang</string>
 
-    <string name="hello_world">Loading...!!!</string>
+    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+        AIzaSyD_aGafH5mEziWja7_C8-8KFHmgO2kZcC0
+    </string>
+
+
+    <string name="app_id">1192310510785841</string>
+    <string name="facebook_app_name">Playtang</string>
+
     <string name="title_activity_main_app">MainAppActivity</string>
 
     <string name="title_text">Google Sign-In\nQuickstart</string>
@@ -21,5 +30,9 @@
 
     <!-- Content Description for images -->
     <string name="desc_google_icon">Google Logo</string>
-    <string name="title_activity_app_home">AppHomeActivity</string>
+    <string name="title_activity_play_tang_home">PlayTangHomeActivity</string>
+
+    <string name="welcome_playtang">Welcome to PlayTang</string>
+    <string name="search_playground">Search for a Playground</string>
+    <string name="book_playground">Book Your Time Slot</string>
 </resources>
