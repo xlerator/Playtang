@@ -2,29 +2,20 @@ package com.playtang.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.facebook.FacebookException;
-import com.facebook.login.LoginResult;
-import com.google.android.gms.common.ConnectionResult;
-import com.playtang.R;
-import com.playtang.android.login.FaceBookLogin;
-import com.playtang.android.login.GoogleLogin;
-
-import static com.playtang.android.login.GoogleLogin.KEY_IS_RESOLVING;
-import static com.playtang.android.login.GoogleLogin.KEY_SHOULD_RESOLVE;
 
 /*
 import android.content.pm.PackageInfo;
@@ -37,12 +28,27 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 */
 
+import com.google.android.gms.common.ConnectionResult;
+
+import com.facebook.*;
+import com.facebook.login.LoginResult;
+
+import com.playtang.R;
+import com.playtang.android.login.GoogleLogin;
+import com.playtang.android.login.FaceBookLogin;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static com.playtang.android.login.GoogleLogin.KEY_IS_RESOLVING;
+import static com.playtang.android.login.GoogleLogin.KEY_SHOULD_RESOLVE;
+import static com.playtang.android.login.FaceBookLogin.FACEBOOK_LOGIN_REQUEST_CODE;
+
+import static com.playtang.android.init.PlaytangApplication.TAG;
 
 
 public class MainAppActivity extends AppCompatActivity implements
         FaceBookLogin.IFaceBookLoginListener, GoogleLogin.IGoogleLoginListener {
-
-    private static final String TAG = "MainAppActivity";
 
     private FaceBookLogin fb;
     private GoogleLogin gl;
@@ -53,6 +59,13 @@ public class MainAppActivity extends AppCompatActivity implements
     private static int mPreviousPage = 0;
     private TextView plusBtn;
     private TextView fbBtn;
+
+    private int [] mResources = new int[]{
+            R.drawable.slider0,
+            R.drawable.slider,
+            R.drawable.slider1,
+            R.drawable.slider2
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +95,7 @@ public class MainAppActivity extends AppCompatActivity implements
         int i = (display_width * 99) / 800;
         mViewPager.getLayoutParams().height = ((getDisplay_hieght - getStatusBarHeight()) - (i * 2)) - ((display_width / 20) * 7);
 
-        mViewPagerAdapter = new ViewPagerAdapter(this);
+        mViewPagerAdapter = new ViewPagerAdapter(this, mResources);
         mViewPager.setAdapter(mViewPagerAdapter);
 
         if (Build.VERSION.SDK_INT >= 21) {
@@ -98,18 +111,21 @@ public class MainAppActivity extends AppCompatActivity implements
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                gl = null;
                 if (gl == null) {
                     gl = new GoogleLogin(MainAppActivity.this, MainAppActivity.this);
                 }
                 gl.updateState(true);
-                gl.requestGoogleLogin();
+                Log.d(TAG,"MainAppActivity::plus btn click requesting google login");
+                gl.requestGoogleLogin(true);
             }
         });
 
         fbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("KeyHash:", "fbBtn onclick");
+                Log.d(TAG,"MainAppActivity:: fbBtn onclick");
+
                 if (fb == null) {
                     fb = new FaceBookLogin(MainAppActivity.this, MainAppActivity.this);
                 }
@@ -161,6 +177,33 @@ public class MainAppActivity extends AppCompatActivity implements
         super.onResume();
         initPagerMarkView();
         setPagerPageChangeListener();
+        animateViewPageSlide();
+
+
+    }
+
+    private Handler mHandler = new Handler();
+    private Timer mSwipeTimer;
+    private int mPageCounter = 0;
+
+    Runnable Update = new Runnable() {
+        public void run() {
+            mViewPager.setCurrentItem(mPageCounter++, true);
+            if (mPageCounter == mViewPagerAdapter.getCount()) {
+                mPageCounter = 0;
+            }
+        }
+    };
+
+    private void animateViewPageSlide() {
+        mSwipeTimer = new Timer();
+        mSwipeTimer.scheduleAtFixedRate(new TimerTask() {
+
+            @Override
+            public void run() {
+                mHandler.post(Update);
+            }
+        }, 10000, 5000);
     }
 
     private void setPagerPageChangeListener() {
@@ -224,14 +267,16 @@ public class MainAppActivity extends AppCompatActivity implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult:" + requestCode + ":" + resultCode + ":" + data);
+        Log.d(TAG, "MainAppActivity::onActivityResult:" + requestCode + ":" + resultCode + ":" + data);
 
         if (requestCode == GoogleLogin.RC_SIGN_IN) {
+            Log.d(TAG, "MainAppActivity::onActivityResult: GoogleLogin" + requestCode + ":" + resultCode + ":" + data);
             gl.onActivityResult(requestCode, resultCode, data);
             //mIsResolving = false;
             //mGoogleApiClient.connect();
-        } else {
+        } else if (requestCode == FaceBookLogin.FACEBOOK_LOGIN_REQUEST_CODE) {
             // 64206
+            Log.d(TAG,"MainAppActivity:: onActivityResult calling fb callback "+requestCode+", resultCode="+resultCode+", data="+data);
             fb.onActivityResult(requestCode, resultCode, data);
         }
     }

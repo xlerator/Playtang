@@ -3,12 +3,14 @@ package com.playtang.activities;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import com.playtang.R;
 
@@ -17,15 +19,16 @@ public class ViewPagerAdapter extends PagerAdapter {
     LayoutInflater mLayoutInflater;
     private int[] mResources;
 
-    public ViewPagerAdapter(Context context) {
+    public ViewPagerAdapter(Context context, int [] resources) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mResources = new int[]{
+        mResources = resources;
+/*        mResources = new int[]{
                 R.drawable.slider0,
                 R.drawable.slider,
                 R.drawable.slider1,
                 R.drawable.slider2
-        };
+        };*/
 
     }
 

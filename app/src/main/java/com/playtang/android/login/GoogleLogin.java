@@ -17,7 +17,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.Plus;
 import com.playtang.R;
 
-
+import static com.playtang.android.init.PlaytangApplication.TAG;
 /**
  * Created by prem.k1 on 9/11/2015.
  */
@@ -36,8 +36,6 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
 
     private Activity mActivity;
     private IGoogleLoginListener mGLoginListener;
-
-    private static final String TAG = "GoogleLogin";
 
     /* Is there a ConnectionResult resolution in progress? */
     private boolean mIsResolving = false;
@@ -79,8 +77,11 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
         mGLoginListener.onGoogleLoginError(exception);
     }
 
-    public void requestGoogleLogin() {
-        if (mGoogleApiClient == null) {
+    private boolean mCheckError = false;
+    public void requestGoogleLogin(boolean resolveError) {
+        if (mGoogleApiClient != null) {
+            mGoogleApiClient = null;
+        }
             mGoogleApiClient = new GoogleApiClient.Builder(mContext)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
@@ -88,12 +89,15 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
                     .addScope(new Scope(Scopes.PROFILE))
                     .addScope(new Scope(Scopes.EMAIL))
                     .build();
-        }
+
+        mCheckError = resolveError;
         mGoogleApiClient.connect();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "GoogleLogin::onActivityResult calling ");
         if (resultCode != Activity.RESULT_OK) {
+            Log.d(TAG, "GoogleLogin::onActivityResult OK result code ");
             mShouldResolve = false;
         }
         mGoogleApiClient.connect();
@@ -104,19 +108,19 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
 
         String name;
         name = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null ? Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getDisplayName() : " ";
-        Log.d(TAG, "onConnected: SignedIn as : " + name);
-        Log.d(TAG, "onConnected: Email : " + Plus.AccountApi.getAccountName(mGoogleApiClient));
-        Log.d(TAG, "onConnected: Url : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getUrl());
-        Log.d(TAG, "onConnected: Location : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getCurrentLocation());
-        Log.d(TAG, "onConnected: Name : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getName());
-        Log.d(TAG, "onConnected: Gender : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getGender());
-        Log.d(TAG, "onConnected: RelationShip Status : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getRelationshipStatus());
-        handleLoginSuccess(bundle);
+        /*Log.d(TAG, "GoogleLogin::onConnected: SignedIn as : " + name);
+        Log.d(TAG, "GoogleLogin::onConnected: Email : " + Plus.AccountApi.getAccountName(mGoogleApiClient));
+        Log.d(TAG, "GoogleLogin::onConnected: Url : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getUrl());
+        Log.d(TAG, "GoogleLogin::onConnected: Location : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getCurrentLocation());
+        Log.d(TAG, "GoogleLogin::onConnected: Name : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getName());
+        Log.d(TAG, "GoogleLogin::onConnected: Gender : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getGender());
+        Log.d(TAG, "GoogleLogin::onConnected: RelationShip Status : " + Plus.PeopleApi.getCurrentPerson(mGoogleApiClient).getRelationshipStatus());
+      */  handleLoginSuccess(bundle);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-        Log.d(TAG, "onConnectionSuspended:");
+        Log.d(TAG, "GoogleLogin::onConnectionSuspended:");
     }
 
 
@@ -125,15 +129,20 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
         // Could not connect to Google Play Services.  The user needs to select an account,
         // grant permissions or resolve an error in order to sign in. Refer to the javadoc for
         // ConnectionResult to see possible error codes.
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Log.d(TAG, "GoogleLogin::onConnectionFailed:" + connectionResult);
+        //connectionResult.startResolutionForResult(mActivity, RC_SIGN_IN);
 
-        if (!mIsResolving && mShouldResolve) {
+
+        if (mCheckError && connectionResult.getErrorCode() == ConnectionResult.SIGN_IN_REQUIRED/*!mIsResolving && mShouldResolve*/) {
+            mCheckError = false;
+            Log.e(TAG, "GoogleLogin::Check if ConnectionResult. has resolution");
             if (connectionResult.hasResolution()) {
                 try {
+                    Log.e(TAG, "GoogleLogin::startResolutionForResult");
                     connectionResult.startResolutionForResult(mActivity, RC_SIGN_IN);
                     mIsResolving = true;
                 } catch (IntentSender.SendIntentException e) {
-                    Log.e(TAG, "Could not resolve ConnectionResult.", e);
+                    Log.e(TAG, "GoogleLogin::Could not resolve ConnectionResult.", e);
                     mIsResolving = false;
                     mGoogleApiClient.connect();
                 }
@@ -143,6 +152,7 @@ public class GoogleLogin implements GoogleApiClient.ConnectionCallbacks, GoogleA
                 showErrorDialog(connectionResult);
             }
         }
+
     }
 
 

@@ -1,0 +1,153 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffdfdfd"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_pager"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <LinearLayout
+            android:id="@+id/dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/home_pager"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:padding="10dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_header_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttons_bg"
+        android:clickable="true"
+        android:padding="20dp"
+        android:translationZ="1dp">
+
+        <com.playtang.android.view.IconView
+            android:id="@+id/home_search_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="s"
+            android:textSize="20dp"
+          />
+
+        <TextView
+            android:id="@+id/home_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/home_search_img"
+            android:gravity="center"
+            android:text="Search"
+            android:textSize="20dp" />
+
+        <com.playtang.android.view.IconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/home_search_img"
+            android:layout_marginRight="10dp"
+            android:text="@string/zicon_right_arrorw"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_header_nearby_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/buttons_bg"
+        android:clickable="true"
+        android:padding="20dp"
+        android:translationZ="1dp">
+
+        <com.playtang.android.view.IconView
+            android:id="@+id/home_nearby_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="l"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/home_nearby_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/home_nearby_img"
+            android:gravity="center"
+            android:text="Locate Nearby"
+            android:textSize="20dp" />
+
+        <com.playtang.android.view.IconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/home_nearby_img"
+            android:layout_marginRight="10dp"
+            android:text="@string/zicon_right_arrorw"
+            android:textSize="20dp" />
+    </RelativeLayout>
+    <!-- <LinearLayout
+         android:id="@+id/dots_temp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@id/home_pager"
+         android:layout_centerHorizontal="true"
+         android:layout_gravity="center_horizontal"
+         android:gravity="bottom"
+         android:orientation="horizontal">
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:padding="5dp"
+             android:src="@drawable/pager_dot_selected" />
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:padding="5dp"
+             android:src="@drawable/pager_dot_selected" />
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:padding="5dp"
+             android:src="@drawable/pager_dot_selected" />
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:padding="5dp"
+             android:src="@drawable/pager_dot_selected" />
+     </LinearLayout>-->
+</LinearLayout>

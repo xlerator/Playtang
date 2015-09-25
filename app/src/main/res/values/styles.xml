@@ -6,8 +6,11 @@
     </style>
 
 	<style name="HomeAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#254B80</item>
     </style>
-
+    <style name="DarkActionTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#254B80</item>
+    </style>
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
